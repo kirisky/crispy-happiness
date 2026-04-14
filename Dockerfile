@@ -16,7 +16,7 @@ FROM nginx:alpine
 
 # Set node environment to production
 ENV NODE_ENV=production
-COPY --from=builder /app/output /usr/share/nginx/html
+COPY --from=builder /app/out /usr/share/nginx/html
 EXPOSE 80
 
 # Start the application
