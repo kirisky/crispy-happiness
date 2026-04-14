@@ -36,7 +36,10 @@ RUN npm install --omit=dev
 
 # Copy ONLY the compiled code/assets from the builder stage.
 # Note: Change '/app/dist' to match your output folder (e.g., '/app/build' or just '/app' if no build step)
-COPY --from=builder /app/dist ./dist
+# COPY --from=builder /app/dist ./dist
+
+COPY --from=builder /app/src ./src
+COPY --from=builder /app/server.js ./
 
 # If you don't have a build step (plain JS), use this instead of the line above:
 # COPY --from=builder /app/src ./src
