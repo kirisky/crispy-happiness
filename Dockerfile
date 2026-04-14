@@ -9,7 +9,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install ALL dependencies (including devDependencies needed for building)
-RUN npm ci
+RUN npm install
 
 # Copy the rest of the source code
 COPY . .
@@ -32,7 +32,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install ONLY production dependencies (ignores devDependencies)
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 
 # Copy ONLY the compiled code/assets from the builder stage.
 # Note: Change '/app/dist' to match your output folder (e.g., '/app/build' or just '/app' if no build step)
